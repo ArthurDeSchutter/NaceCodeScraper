@@ -26,6 +26,11 @@ foreach (var node in nodes.ChildNodes)
 
         if (string.IsNullOrEmpty(naceCode) || string.IsNullOrEmpty(omschrijving) || !int.TryParse(naceCode, out _)) continue;
 
+        if (omschrijving.Contains(","))
+        {
+        }
+        omschrijving = $"\"{omschrijving}\"";
+
         var newLine = string.Format("{0},{1}", naceCode, omschrijving);
 
         csv.AppendLine(newLine);
